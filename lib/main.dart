@@ -2,6 +2,7 @@ import 'package:eat_meat/models/appbar_btn.dart';
 import 'package:eat_meat/pages/dashboard.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/menu.dart';
+import 'package:eat_meat/pages/qr_scan.dart';
 import 'package:eat_meat/pages/search.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,12 @@ class _StartState extends State<Start> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.qr_code_scanner),
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            currentScreen = const QrScan();
+            currentTab = 4;
+          });
+        },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
