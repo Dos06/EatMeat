@@ -43,9 +43,63 @@ class _QrScanState extends State<QrScan> {
             bottom: 50,
             child: buildResult(),
           ),
+          Positioned(
+            top: 10,
+            child: buildControlButtons(),
+          ),
         ],
       ),
     ));
+  }
+
+  Widget buildControlButtons() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: Colors.white24,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          IconButton(
+            icon: FutureBuilder<bool?>(
+              future: controller?.getFlashStatus(),
+              builder: (context, snapshot) {
+                if (snapshot.data != null) {
+                  return Icon(
+                    snapshot.data! ? Icons.flash_on : Icons.flash_off,
+                    color: Colors.white,
+                  );
+                }
+                return Container();
+              },
+            ),
+            onPressed: () async {
+              await controller?.toggleFlash();
+            },
+          ),
+          IconButton(
+            icon: FutureBuilder(
+                future: controller?.getCameraInfo(),
+                builder: (context, snapshot) {
+                  if (snapshot.data != null) {
+                    return const Icon(
+                      Icons.switch_camera,
+                      color: Colors.white,
+                    );
+                  }
+                  return Container();
+                }),
+            onPressed: () async {
+              await controller?.flipCamera();
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildResult() {

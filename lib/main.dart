@@ -35,7 +35,7 @@ class Start extends StatefulWidget {
 class _StartState extends State<Start> {
   int currentTab = 0;
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = const Dashboard();
+  Widget currentScreen = const Home();
 
   final List<List<AppbarBtn>> buttons = [
     [
@@ -100,14 +100,14 @@ class _StartState extends State<Start> {
                                     Icon(
                                       btn.icon,
                                       color: currentTab == btn.index
-                                          ? Colors.indigo
+                                          ? Theme.of(context).accentColor
                                           : Colors.grey,
                                     ),
                                     Text(
                                       btn.name,
                                       style: TextStyle(
                                           color: currentTab == btn.index
-                                              ? Colors.indigo
+                                              ? Theme.of(context).accentColor
                                               : Colors.grey),
                                     )
                                   ],
