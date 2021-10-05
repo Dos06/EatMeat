@@ -1,3 +1,4 @@
+import 'package:eat_meat/components/date_picker.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -15,10 +16,15 @@ class _SearchState extends State<Search> {
         title: const Text('Search'),
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'Search Screen',
-          style: TextStyle(fontSize: 40),
+      body: Center(
+        child: Column(
+          children: const [
+            Text(
+              'Search Screen',
+              style: TextStyle(fontSize: 40),
+            ),
+            DatePicker(),
+          ],
         ),
       ),
     );
