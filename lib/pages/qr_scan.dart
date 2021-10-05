@@ -34,22 +34,33 @@ class _QrScanState extends State<QrScan> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          buildQrView(context),
-          Positioned(
-            bottom: 50,
-            child: buildResult(),
-          ),
-          Positioned(
-            top: 10,
-            child: buildControlButtons(),
-          ),
-        ],
+      child: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            buildQrView(context),
+            Positioned(
+              bottom: 100,
+              child: buildResult(),
+            ),
+            Positioned(
+              top: 10,
+              child: buildControlButtons(),
+            ),
+            Positioned(
+              bottom: 30,
+              child: FloatingActionButton(
+                child: const Icon(
+                  Icons.close,
+                  size: 36.0,
+                ),
+                onPressed: () => Navigator.pop(context),
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget buildControlButtons() {
@@ -122,7 +133,7 @@ class _QrScanState extends State<QrScan> {
       key: qrKey,
       onQRViewCreated: onQRViewCreated,
       overlay: QrScannerOverlayShape(
-        borderColor: Theme.of(context).accentColor,
+        borderColor: Theme.of(context).primaryColorDark,
         borderRadius: 10,
         borderLength: 20,
         borderWidth: 10,

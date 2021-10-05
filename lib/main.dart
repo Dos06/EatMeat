@@ -1,3 +1,4 @@
+import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
 import 'package:eat_meat/pages/dashboard.dart';
 import 'package:eat_meat/pages/home.dart';
@@ -17,9 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "EatMeat",
-      theme: ThemeData(
-          primarySwatch: Colors.indigo,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
+      theme: theme(),
       home: const Start(),
     );
   }
@@ -60,6 +59,7 @@ class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
@@ -67,10 +67,12 @@ class _StartState extends State<Start> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.qr_code_scanner),
         onPressed: () {
-          setState(() {
-            currentScreen = const QrScan();
-            currentTab = 4;
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const QrScan(),
+            ),
+          );
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -80,6 +82,7 @@ class _StartState extends State<Start> {
         child: SizedBox(
           height: 60,
           child: Row(
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: buttons
                 .map((list) => Row(
@@ -100,14 +103,15 @@ class _StartState extends State<Start> {
                                     Icon(
                                       btn.icon,
                                       color: currentTab == btn.index
-                                          ? Theme.of(context).accentColor
+                                          ? Theme.of(context).primaryColorDark
                                           : Colors.grey,
                                     ),
                                     Text(
                                       btn.name,
                                       style: TextStyle(
                                           color: currentTab == btn.index
-                                              ? Theme.of(context).accentColor
+                                              ? Theme.of(context)
+                                                  .primaryColorDark
                                               : Colors.grey),
                                     )
                                   ],
