@@ -1,6 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+extension DateTimeRoundExtension on DateTime {
+  DateTime roundDown({Duration delta = const Duration(minutes: 15)}) {
+    return DateTime.fromMillisecondsSinceEpoch(
+        millisecondsSinceEpoch - millisecondsSinceEpoch % delta.inMilliseconds);
+  }
+
+  DateTime roundUp({Duration delta = const Duration(minutes: 15)}) {
+    return DateTime.fromMillisecondsSinceEpoch(
+        delta.inMilliseconds + millisecondsSinceEpoch - millisecondsSinceEpoch % delta.inMilliseconds);
+  }
+}
+
 class DatePickerUtil {
   static void showSheet(
     BuildContext context, {

@@ -12,18 +12,23 @@ class DatePicker extends StatefulWidget {
 
 class _DatePickerState extends State<DatePicker> {
   int minuteInterval = 15;
-  DateTime minDate = DateTime.now();
-  DateTime maxDate = DateTime(
-    DateTime.now().year,
-    DateTime.now().month + 1,
-    DateTime.now().day,
-  );
-  DateTime dateTime = DateTime.now();
+  late DateTime minDate;
+  late DateTime maxDate;
+  late DateTime dateTime;
 
   @override
   void initState() {
     super.initState();
-    dateTime = getDateTime(minuteInterval: minuteInterval);
+    DateTime now = DateTime.now().roundUp();
+    minDate = now;
+    dateTime = now;
+    maxDate = DateTime(
+      now.year,
+      now.month + 1,
+      now.day,
+      now.hour,
+      now.minute,
+    );
   }
 
   DateTime getDateTime({minuteInterval}) {
