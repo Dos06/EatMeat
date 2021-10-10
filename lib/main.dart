@@ -2,12 +2,14 @@ import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
 import 'package:eat_meat/pages/dashboard.dart';
 import 'package:eat_meat/pages/home.dart';
-import 'package:eat_meat/pages/menu.dart';
+import 'package:eat_meat/pages/profile.dart';
 import 'package:eat_meat/pages/qr_scan.dart';
 import 'package:eat_meat/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
-void main() {
+Future main() async {
+  await Settings.init(cacheProvider: SharePreferenceCache());
   runApp(const MyApp());
 }
 
@@ -50,9 +52,9 @@ class _StartState extends State<Start> {
           index: 2, icon: Icons.search, name: 'Search', widget: const Search()),
       AppbarBtn(
           index: 3,
-          icon: Icons.restaurant_menu,
-          name: 'Menu',
-          widget: const Menu()),
+          icon: Icons.person,
+          name: 'Profile',
+          widget: const Profile()),
     ],
   ];
 
@@ -104,7 +106,7 @@ class _StartState extends State<Start> {
                                       btn.icon,
                                       color: currentTab == btn.index
                                           ? Theme.of(context).primaryColorDark
-                                          : Colors.grey,
+                                          : Colors.grey[600],
                                     ),
                                     Text(
                                       btn.name,
@@ -112,7 +114,7 @@ class _StartState extends State<Start> {
                                           color: currentTab == btn.index
                                               ? Theme.of(context)
                                                   .primaryColorDark
-                                              : Colors.grey),
+                                              : Colors.grey[600]),
                                     )
                                   ],
                                 ),

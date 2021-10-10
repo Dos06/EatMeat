@@ -7,6 +7,8 @@ ThemeData theme() {
     primaryColorDark: const Color.fromRGBO(66, 72, 116, 1),
     primaryColorLight: const Color.fromRGBO(220, 214, 247, 1),
     scaffoldBackgroundColor: const Color.fromRGBO(244, 238, 255, 1),
+    canvasColor: const Color.fromRGBO(244, 238, 255, 1),
+    bottomAppBarColor: Colors.indigo[200],
     backgroundColor: const Color(0xFFF5F5F5),
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: const TextTheme(
