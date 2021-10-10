@@ -12,7 +12,13 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menu'),
+        title: Text(
+          'Menu',
+          style: Theme.of(context)
+              .textTheme
+              .headline3!
+              .copyWith(color: Colors.white),
+        ),
         centerTitle: true,
       ),
       body: const Center(
