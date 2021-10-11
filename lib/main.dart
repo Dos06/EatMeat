@@ -106,7 +106,7 @@ class _StartState extends State<Start> {
                                       btn.icon,
                                       color: currentTab == btn.index
                                           ? Theme.of(context).primaryColorDark
-                                          : Colors.grey[600],
+                                          : Colors.grey[800],
                                     ),
                                     Text(
                                       btn.name,
@@ -114,7 +114,7 @@ class _StartState extends State<Start> {
                                           color: currentTab == btn.index
                                               ? Theme.of(context)
                                                   .primaryColorDark
-                                              : Colors.grey[600]),
+                                              : Colors.grey[800]),
                                     )
                                   ],
                                 ),

@@ -39,7 +39,7 @@ ThemeData theme() {
       ),
       headline6: TextStyle(
         color: Color(0xFF1B070B),
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
       bodyText1: TextStyle(

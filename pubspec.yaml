@@ -40,6 +40,7 @@ dependencies:
   flutter_settings_screens: ^0.3.2-null-safety
 
 dev_dependencies:
+  focused_menu: ^1.0.0
   flutter_test:
     sdk: flutter
 

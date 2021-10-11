@@ -9,33 +9,78 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _value = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const HomeAppBar(),
-      body: SingleChildScrollView(
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  'Restaurants',
-                  style: Theme.of(context).textTheme.headline2,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                const Text(
+                  "Restaurants",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-              ),
+                const Expanded(child: Center()),
+                IconButton(
+                  icon: const Icon(Icons.add_shopping_cart),
+                  onPressed: () => {},
+                ),
+              ],
             ),
-            ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: Restaurant.restaurants.length,
-              itemBuilder: (context, index) {
-                return RestaurantCard(
-                  restaurant: Restaurant.restaurants[index],
-                );
-              },
+            const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                DropdownButton(
+                  value: _value,
+                  style: Theme.of(context).textTheme.headline6,
+                  hint: const Text("Select"),
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  underline: Container(color: Colors.white),
+                  items: const [
+                    DropdownMenuItem(
+                      child: Text("All"),
+                      value: 1,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("Open"),
+                      value: 2,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("Closed"),
+                      value: 3,
+                    ),
+                  ],
+                  onChanged: (int? value) {
+                    setState(() {
+                      _value = value!;
+                    });
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.sort),
+                  onPressed: () => {},
+                )
+              ],
+            ),
+            Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: Restaurant.restaurants.length,
+                itemBuilder: (context, index) {
+                  return RestaurantCard(
+                    restaurant: Restaurant.restaurants[index],
+                  );
+                },
+              ),
             ),
           ],
         ),
