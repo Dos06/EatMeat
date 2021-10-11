@@ -1,5 +1,7 @@
 import 'package:eat_meat/models/models_restaurants.dart';
 import 'package:flutter/material.dart';
+import 'package:focused_menu/focused_menu.dart';
+import 'package:focused_menu/modals.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -77,8 +79,38 @@ class _HomeState extends State<Home> {
                     shrinkWrap: true,
                     itemCount: Restaurant.restaurants.length,
                     itemBuilder: (context, index) {
-                      return RestaurantCard(
-                        restaurant: Restaurant.restaurants[index],
+                      return FocusedMenuHolder(
+                        child: RestaurantCard(
+                          restaurant: Restaurant.restaurants[index],
+                        ),
+                        blurSize: 5.0,
+                        menuItemExtent: 45,
+                        menuWidth: MediaQuery.of(context).size.width*0.5,
+                        menuBoxDecoration: BoxDecoration(color: Colors.grey,
+                          borderRadius: BorderRadius.all(Radius.circular(15.0))),
+                        duration: Duration(milliseconds: 100),
+                        animateMenuItems: true,
+                        blurBackgroundColor: Colors.black54,
+                        menuOffset: 0,
+                        bottomOffsetHeight: 80.0,
+                        menuItems: [
+                          FocusedMenuItem(
+                            title: Text("Add to favourites"),
+                            trailingIcon: Icon(Icons.control_point_outlined),
+                            onPressed: () => {}
+                          ),
+                          FocusedMenuItem(
+                              title: Text("Share"),
+                              trailingIcon: Icon(Icons.share),
+                              onPressed: () => {}
+                          ),
+                          FocusedMenuItem(
+                              title: Text("Review"),
+                              trailingIcon: Icon(Icons.comment),
+                              onPressed: () => {}
+                          ),
+                        ],
+                        onPressed: () {},
                       );
                     },
                   ),
