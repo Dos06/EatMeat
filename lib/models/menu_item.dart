@@ -7,6 +7,7 @@ class MenuItem extends Equatable {
   final String description;
   final double price;
   final String imageUrl;
+  final String category;
 
   const MenuItem({
     required this.id,
@@ -15,6 +16,7 @@ class MenuItem extends Equatable {
     required this.description,
     required this.price,
     required this.imageUrl,
+    required this.category,
   });
 
   @override
@@ -24,12 +26,15 @@ class MenuItem extends Equatable {
         name,
         description,
         price,
+        imageUrl,
+        category,
       ];
 
   static List<MenuItem> menuItems = [
     const MenuItem(
       id: 1,
       restaurantId: 1,
+      category: "Pizza",
       name: "Pizza",
       description: "Just pizza",
       price: 5.99,
@@ -39,6 +44,7 @@ class MenuItem extends Equatable {
     const MenuItem(
       id: 2,
       restaurantId: 1,
+      category: "Sushi",
       name: "Sushi",
       description: "Just Sushi",
       price: 15.99,
@@ -48,6 +54,7 @@ class MenuItem extends Equatable {
     const MenuItem(
       id: 3,
       restaurantId: 2,
+      category: "Pizza",
       name: "Pizza",
       description: "Just pizza",
       price: 13.99,
@@ -57,6 +64,7 @@ class MenuItem extends Equatable {
     const MenuItem(
       id: 4,
       restaurantId: 2,
+      category: "Sushi",
       name: "Sushi",
       description: "Just Sushi",
       price: 8.99,
@@ -66,6 +74,7 @@ class MenuItem extends Equatable {
     const MenuItem(
       id: 5,
       restaurantId: 3,
+      category: "Pizza",
       name: "Pizza",
       description: "Just pizza",
       price: 10.99,

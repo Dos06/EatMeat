@@ -1,3 +1,4 @@
+import 'package:eat_meat/config/router.dart';
 import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
 import 'package:eat_meat/pages/cart.dart';
@@ -21,6 +22,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "EatMeat",
       theme: theme(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: Home.routeName,
       home: const Start(),
     );
   }
@@ -106,7 +109,7 @@ class _StartState extends State<Start> {
                                       btn.icon,
                                       color: currentTab == btn.index
                                           ? Theme.of(context).primaryColorDark
-                                          : Colors.grey[600],
+                                          : Colors.grey[700],
                                     ),
                                     Text(
                                       btn.name,
@@ -114,7 +117,7 @@ class _StartState extends State<Start> {
                                           color: currentTab == btn.index
                                               ? Theme.of(context)
                                                   .primaryColorDark
-                                              : Colors.grey[600]),
+                                              : Colors.grey[700]),
                                     )
                                   ],
                                 ),

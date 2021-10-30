@@ -1,7 +1,6 @@
+import 'package:eat_meat/models/menu_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'models_restaurants.dart';
 
 class CartItem extends StatelessWidget {
   final MenuItem menuItem;
@@ -14,7 +13,7 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(

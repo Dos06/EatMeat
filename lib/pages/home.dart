@@ -1,11 +1,20 @@
-import 'package:eat_meat/models/models_restaurants.dart';
+import 'package:eat_meat/models/restaurant.dart';
 import 'package:eat_meat/pages/restaurant_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
 
 class Home extends StatefulWidget {
+  static const String routeName = '/';
+
   const Home({Key? key}) : super(key: key);
+
+  static Route route() {
+    return MaterialPageRoute(
+      builder: (_) => const Home(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   _HomeState createState() => _HomeState();
@@ -119,7 +128,9 @@ class _HomeState extends State<Home> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RestaurantDetailsScreen(),
+                          builder: (context) => RestaurantDetailsScreen(
+                            restaurant: Restaurant.restaurants[index],
+                          ),
                         ),
                       );
                     },
