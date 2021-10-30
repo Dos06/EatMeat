@@ -1,6 +1,6 @@
 import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
-import 'package:eat_meat/pages/dashboard.dart';
+import 'package:eat_meat/pages/cart.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/profile.dart';
 import 'package:eat_meat/pages/qr_scan.dart';
@@ -45,7 +45,7 @@ class _StartState extends State<Start> {
           index: 1,
           icon: Icons.dashboard,
           name: 'Dashboard',
-          widget: const Dashboard()),
+          widget: const Cart()),
     ],
     [
       AppbarBtn(

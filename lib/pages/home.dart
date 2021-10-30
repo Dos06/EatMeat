@@ -1,4 +1,5 @@
 import 'package:eat_meat/models/models_restaurants.dart';
+import 'package:eat_meat/pages/restaraunt_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
 import 'package:focused_menu/modals.dart';
@@ -110,7 +111,12 @@ class _HomeState extends State<Home> {
                               onPressed: () => {}
                           ),
                         ],
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => RestarauntDetailsScreen()),
+                          );
+                        },
                       );
                     },
                   ),

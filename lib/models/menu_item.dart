@@ -6,6 +6,7 @@ class MenuItem extends Equatable {
   final String name;
   final String description;
   final double price;
+  final String imageUrl;
 
   const MenuItem({
     required this.id,
@@ -13,6 +14,7 @@ class MenuItem extends Equatable {
     required this.name,
     required this.description,
     required this.price,
+    required this.imageUrl,
   });
 
   @override
@@ -31,6 +33,7 @@ class MenuItem extends Equatable {
       name: "Pizza",
       description: "Just pizza",
       price: 5.99,
+      imageUrl: 'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
     ),
     const MenuItem(
       id: 2,
@@ -38,6 +41,7 @@ class MenuItem extends Equatable {
       name: "Sushi",
       description: "Just Sushi",
       price: 15.99,
+      imageUrl:  'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
     ),
     const MenuItem(
       id: 3,
@@ -45,6 +49,7 @@ class MenuItem extends Equatable {
       name: "Pizza",
       description: "Just pizza",
       price: 13.99,
+      imageUrl:  'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
     ),
     const MenuItem(
       id: 4,
@@ -52,6 +57,7 @@ class MenuItem extends Equatable {
       name: "Sushi",
       description: "Just Sushi",
       price: 8.99,
+      imageUrl:  'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
     ),
     const MenuItem(
       id: 5,
@@ -59,13 +65,7 @@ class MenuItem extends Equatable {
       name: "Pizza",
       description: "Just pizza",
       price: 10.99,
-    ),
-    const MenuItem(
-      id: 6,
-      restaurantId: 3,
-      name: "Sushi",
-      description: "Just sushi",
-      price: 7.99,
+      imageUrl:  'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
     ),
   ];
 }
