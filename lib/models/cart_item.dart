@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,16 +20,17 @@ class CartItem extends StatelessWidget {
         Container(
           width: 140,
           height: 80,
-          padding: EdgeInsets.all(4.0),
-          decoration: BoxDecoration(
+          padding: const EdgeInsets.all(4.0),
+          decoration: const BoxDecoration(
             color: Colors.blueAccent,
             image: DecorationImage(
-              image: NetworkImage('https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb')
-            )
+              image: NetworkImage(
+                'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
+              ),
+            ),
           ),
         ),
-        SizedBox(width: 12.0),
-
+        const SizedBox(width: 12.0),
       ],
     );
   }
