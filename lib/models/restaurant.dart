@@ -5,39 +5,59 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Restaurant extends Equatable {
-  final int id;
+  final int? id;
   final String name;
   final String imageUrl;
   final double rating;
   final double distance;
-  final List<String> tags;
-  final List<MenuItem> menuItems;
+  late List<String>? tags;
+  late List<MenuItem>? menuItems;
 
   @override
   String toString() {
     return 'Restaurant{name: $name, rating: $rating, distance: $distance, tags: $tags, menuItems: $menuItems}';
   }
 
-  const Restaurant({
-    required this.id,
+  Restaurant({
+    this.id,
     required this.name,
     required this.imageUrl,
     required this.rating,
     required this.distance,
-    required this.tags,
-    required this.menuItems,
+    this.tags,
+    this.menuItems,
   });
 
   @override
   List<Object> get props => [
-        id,
+        // id,
         name,
         imageUrl,
         rating,
         distance,
-        tags,
-        menuItems,
+        // tags,
+        // menuItems,
       ];
+
+  factory Restaurant.fromMap(Map<String, dynamic> json) => Restaurant(
+        id: json['id'],
+        name: json['name'],
+        imageUrl: json['imageUrl'],
+        rating: json['rating'],
+        distance: json['distance'],
+      );
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'imageUrl': imageUrl,
+      'rating': rating,
+      'distance': distance,
+      // 'tags': tags,
+      // 'menuItems': menuItems,
+    };
+  }
 
   static List<Restaurant> restaurants = [
     Restaurant(

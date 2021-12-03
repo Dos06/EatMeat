@@ -56,7 +56,7 @@ class _CartState extends State<Cart> {
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
-          children: <Widget>[
+          children: [
             TextButton(
               onPressed: () {
                 Alert(
@@ -118,7 +118,7 @@ class _CartState extends State<Cart> {
                         Checkbox(
                           checkColor: Colors.white,
                           fillColor:
-                              MaterialStateProperty.resolveWith(getColor),
+                          MaterialStateProperty.resolveWith(getColor),
                           value: isChecked,
                           onChanged: (bool? value) {
                             setState(() {
@@ -129,7 +129,7 @@ class _CartState extends State<Cart> {
                         Checkbox(
                           checkColor: Colors.white,
                           fillColor:
-                              MaterialStateProperty.resolveWith(getColor),
+                          MaterialStateProperty.resolveWith(getColor),
                           value: isChecked,
                           onChanged: (bool? value) {
                             setState(() {

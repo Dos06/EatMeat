@@ -11,6 +11,7 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
 Future main() async {
   await Settings.init(cacheProvider: SharePreferenceCache());
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -46,8 +47,8 @@ class _StartState extends State<Start> {
       AppbarBtn(index: 0, icon: Icons.home, name: 'Home', widget: const Home()),
       AppbarBtn(
           index: 1,
-          icon: Icons.dashboard,
-          name: 'Dashboard',
+          icon: Icons.shopping_basket,
+          name: 'Cart',
           widget: const Cart()),
     ],
     [

@@ -12,17 +12,16 @@ class RestaurantTags extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: restaurant.tags
+      children: restaurant.tags!
           .map((tag) => Text(
-        restaurant.tags.indexOf(tag) ==
-            restaurant.tags.length - 1
-            ? tag
-            : '$tag, ',
-        style: Theme.of(context)
-            .textTheme
-            .bodyText1!
-            .copyWith(fontSize: 16),
-      ))
+                restaurant.tags!.indexOf(tag) == restaurant.tags!.length - 1
+                    ? tag
+                    : '$tag, ',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1!
+                    .copyWith(fontSize: 16),
+              ))
           .toList(),
     );
   }

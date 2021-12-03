@@ -21,8 +21,6 @@ class RestaurantDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Restaurant restaurant = Restaurant.restaurants[0];
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -67,7 +65,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
               padding: EdgeInsets.zero,
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: restaurant.tags.length,
+              itemCount: restaurant.tags?.length,
               itemBuilder: (context, index) =>
                   _buildMenuItems(restaurant, context, index),
             ),
@@ -89,7 +87,7 @@ class RestaurantDetailsScreen extends StatelessWidget {
             vertical: 10,
           ),
           child: Text(
-            restaurant.tags[index],
+            restaurant.tags![index],
             style: Theme.of(context)
                 .textTheme
                 .headline3!
@@ -97,8 +95,8 @@ class RestaurantDetailsScreen extends StatelessWidget {
           ),
         ),
         Column(
-          children: restaurant.menuItems
-              .where((element) => element.category == restaurant.tags[index])
+          children: restaurant.menuItems!
+              .where((element) => element.category == restaurant.tags![index])
               .map(
                 (e) => Column(
                   children: [
