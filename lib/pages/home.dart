@@ -44,8 +44,11 @@ class _HomeState extends State<Home> {
                 ),
                 const Expanded(child: Center()),
                 IconButton(
-                  icon: const Icon(Icons.add_shopping_cart),
-                  onPressed: () => {},
+                  icon: const Icon(Icons.menu),
+                  onPressed: () => Navigator.pushNamed(
+                    context,
+                    Filter.routeName,
+                  ),
                 )
               ],
             ),
@@ -84,25 +87,26 @@ class _HomeState extends State<Home> {
                   hint: const Text("Select"),
                 ),
                 IconButton(
-                    onPressed: () async {
-                      await DbHandler.instance.dropTable();
+                  icon: const Icon(Icons.sort),
+                  onPressed: () async {
+                    await DbHandler.instance.dropTable();
 
-                      Database db = await DbHandler.instance.database;
-                      await db.execute(
-                          "create table if not exists restaurants(id INTEGER PRIMARY KEY, name TEXT, imageUrl TEXT, rating DOUBLE, distance DOUBLE);");
+                    Database db = await DbHandler.instance.database;
+                    await db.execute(
+                        "create table if not exists restaurants(id INTEGER PRIMARY KEY, name TEXT, imageUrl TEXT, rating DOUBLE, distance DOUBLE);");
 
-                      for (int i = 0; i < Restaurant.restaurants.length; i++) {
-                        Restaurant r = Restaurant.restaurants[i];
-                        await DbHandler.instance.add(Restaurant(
-                          id: r.id,
-                          name: r.name,
-                          imageUrl: r.imageUrl,
-                          rating: r.rating,
-                          distance: r.distance,
-                        ));
-                      }
-                    },
-                    icon: const Icon(Icons.sort))
+                    for (int i = 0; i < Restaurant.restaurants.length; i++) {
+                      Restaurant r = Restaurant.restaurants[i];
+                      await DbHandler.instance.add(Restaurant(
+                        id: r.id,
+                        name: r.name,
+                        imageUrl: r.imageUrl,
+                        rating: r.rating,
+                        distance: r.distance,
+                      ));
+                    }
+                  },
+                ),
               ],
             ),
             Expanded(

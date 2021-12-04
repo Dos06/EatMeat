@@ -1,4 +1,5 @@
 import 'package:eat_meat/models/restaurant.dart';
+import 'package:eat_meat/pages/filter.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/restaurant_details_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,7 +10,9 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return Home.route();
-      case '/restaurant-details':
+      case Filter.routeName:
+        return Filter.route();
+      case RestaurantDetailsScreen.routeName:
         return RestaurantDetailsScreen.route(
           restaurant: settings.arguments as Restaurant,
         );
