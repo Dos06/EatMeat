@@ -1,15 +1,18 @@
+import 'package:eat_meat/config/router.dart';
 import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
-import 'package:eat_meat/pages/dashboard.dart';
+import 'package:eat_meat/pages/cart.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/profile.dart';
 import 'package:eat_meat/pages/qr_scan.dart';
 import 'package:eat_meat/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
 Future main() async {
   await Settings.init(cacheProvider: SharePreferenceCache());
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -19,8 +22,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       title: "EatMeat",
       theme: theme(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: Home.routeName,
       home: const Start(),
     );
   }
@@ -43,9 +53,9 @@ class _StartState extends State<Start> {
       AppbarBtn(index: 0, icon: Icons.home, name: 'Home', widget: const Home()),
       AppbarBtn(
           index: 1,
-          icon: Icons.dashboard,
-          name: 'Dashboard',
-          widget: const Dashboard()),
+          icon: Icons.shopping_basket,
+          name: 'Cart',
+          widget: const Cart()),
     ],
     [
       AppbarBtn(
@@ -106,7 +116,7 @@ class _StartState extends State<Start> {
                                       btn.icon,
                                       color: currentTab == btn.index
                                           ? Theme.of(context).primaryColorDark
-                                          : Colors.grey[800],
+                                          : Colors.grey[700],
                                     ),
                                     Text(
                                       btn.name,
@@ -114,7 +124,7 @@ class _StartState extends State<Start> {
                                           color: currentTab == btn.index
                                               ? Theme.of(context)
                                                   .primaryColorDark
-                                              : Colors.grey[800]),
+                                              : Colors.grey[700]),
                                     )
                                   ],
                                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData theme() {
   return ThemeData(
+    fontFamily: 'Ubuntu bold',
     primarySwatch: Colors.indigo,
     primaryColor: const Color.fromRGBO(166, 177, 225, 1),
     primaryColorDark: const Color.fromRGBO(66, 72, 116, 1),

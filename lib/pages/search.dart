@@ -9,6 +9,8 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  final textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +30,13 @@ class _SearchState extends State<Search> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CupertinoSearchTextField(
+              CupertinoSearchTextField(
                 placeholder: 'Search for some food...',
                 autofocus: true,
-                padding: EdgeInsets.symmetric(vertical: 15),
-                prefixInsets: EdgeInsets.all(15),
-                suffixInsets: EdgeInsets.all(15),
+                controller: textController,
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                prefixInsets: const EdgeInsets.all(15),
+                suffixInsets: const EdgeInsets.all(15),
               ),
               Scrollbar(
                 child: Container(),
