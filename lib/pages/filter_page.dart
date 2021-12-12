@@ -1,14 +1,14 @@
 import 'package:eat_meat/models/category.dart';
 import 'package:flutter/material.dart';
 
-class Filter extends StatelessWidget {
+class FilterPage extends StatelessWidget {
   static const String routeName = '/filters';
 
-  const Filter({Key? key}) : super(key: key);
+  const FilterPage({Key? key}) : super(key: key);
 
   static Route route() {
     return MaterialPageRoute(
-      builder: (_) => const Filter(),
+      builder: (_) => const FilterPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -37,7 +37,7 @@ class Filter extends StatelessWidget {
                     color: Theme.of(context).primaryColorDark,
                   ),
             ),
-            CategoryFilter(categories: Category.categories),
+            CategoryFilterWidget(categories: Category.categories),
           ],
         ),
       ),
@@ -45,10 +45,10 @@ class Filter extends StatelessWidget {
   }
 }
 
-class CategoryFilter extends StatelessWidget {
+class CategoryFilterWidget extends StatelessWidget {
   final List<Category> categories;
 
-  const CategoryFilter({
+  const CategoryFilterWidget({
     Key? key,
     required this.categories,
   }) : super(key: key);

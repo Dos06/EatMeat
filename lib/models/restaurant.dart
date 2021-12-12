@@ -68,7 +68,12 @@ class Restaurant extends Equatable {
           'https://www.linguahouse.com/linguafiles/md5/d01dfa8621f83289155a3be0970fb0cb',
       rating: 4.5,
       distance: 10.5,
-      tags: const ['Pizza', 'Sushi', 'Burger', 'Pasta'],
+      // tags: const ['Pizza', 'Sushi', 'Burger', 'Pasta'],
+      tags: MenuItem.menuItems
+          .where((element) => element.restaurantId == 1)
+          .map((menuItem) => menuItem.category)
+          .toSet()
+          .toList(),
       menuItems: MenuItem.menuItems
           .where((element) => element.restaurantId == 1)
           .toList(),

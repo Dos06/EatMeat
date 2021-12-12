@@ -1,6 +1,6 @@
 import 'package:eat_meat/models/menu_item.dart';
 import 'package:eat_meat/models/restaurant.dart';
-import 'package:eat_meat/pages/filter.dart';
+import 'package:eat_meat/pages/filter_page.dart';
 import 'package:eat_meat/pages/restaurant_details_screen.dart';
 import 'package:eat_meat/util/db_handler.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
                   icon: const Icon(Icons.menu),
                   onPressed: () => Navigator.pushNamed(
                     context,
-                    Filter.routeName,
+                    FilterPage.routeName,
                   ),
                 )
               ],

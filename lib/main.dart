@@ -7,6 +7,7 @@ import 'package:eat_meat/pages/profile.dart';
 import 'package:eat_meat/pages/qr_scan.dart';
 import 'package:eat_meat/pages/search.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 
 Future main() async {
@@ -21,6 +22,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       title: "EatMeat",
       theme: theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
