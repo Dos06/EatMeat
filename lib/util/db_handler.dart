@@ -1,6 +1,8 @@
 import 'dart:io';
 
+import 'package:eat_meat/models/menu_item.dart';
 import 'package:eat_meat/models/restaurant.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -17,6 +19,54 @@ class DbHandler {
     Directory dir = await getApplicationDocumentsDirectory();
     String path = join(dir.path, 'db.db');
     return await openDatabase(path, version: 1, onCreate: _onCreate);
+  }
+
+  static List<MenuItem> items = [];
+
+  addItem(item){
+    items.add(item);
+    debugPrint(items.length.toStringAsFixed(2));
+  }
+
+  getBasketItems(){
+    return items;
+  }
+
+  getBasketSubTotal(){
+    double summ = 0;
+    items.forEach((element) {
+      summ+=element.price;
+    });
+
+    return summ.toStringAsFixed(2);
+  }
+
+  getBasketService(){
+    double summ = 0;
+    items.forEach((element) {
+      summ+=element.price;
+    });
+    
+    double service = summ * 0.1;
+    
+    return service.toStringAsFixed(2);
+  }
+
+  getBasketTotal() {
+    double summ = 0;
+    items.forEach((element) {
+      summ+=element.price;
+    });
+
+    double service = summ * 0.1;
+    
+    double total = service + summ;
+    
+    return total.toStringAsFixed(2);
+  }
+
+  clearBasket() {
+    items = [];
   }
 
   Future _onCreate(Database db, int version) async {

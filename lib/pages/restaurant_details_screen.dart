@@ -1,5 +1,6 @@
 import 'package:eat_meat/components/restaurant_information.dart';
 import 'package:eat_meat/models/restaurant.dart';
+import 'package:eat_meat/util/db_handler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
                 primary: Theme.of(context).primaryColorDark,
                 shape: const RoundedRectangleBorder(),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/basket');
+              },
               child: const Text('Basket'),
             ),
           ],
@@ -127,7 +130,9 @@ class RestaurantDetailsScreen extends StatelessWidget {
                                 Icons.add_circle,
                                 color: Colors.indigo,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                DbHandler.instance.addItem(e);
+                              },
                             )
                           ],
                         ),

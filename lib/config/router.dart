@@ -1,4 +1,5 @@
 import 'package:eat_meat/models/restaurant.dart';
+import 'package:eat_meat/pages/basket_screen.dart';
 import 'package:eat_meat/pages/filter_page.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/restaurant_details_screen.dart';
@@ -16,6 +17,8 @@ class AppRouter {
         return RestaurantDetailsScreen.route(
           restaurant: settings.arguments as Restaurant,
         );
+      case BasketScreen.routeName:
+        return BasketScreen.route();
       default:
         return _errorRoute();
     }

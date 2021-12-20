@@ -1,6 +1,7 @@
 import 'package:eat_meat/config/router.dart';
 import 'package:eat_meat/config/theme.dart';
 import 'package:eat_meat/models/appbar_btn.dart';
+import 'package:eat_meat/pages/basket_screen.dart';
 import 'package:eat_meat/pages/cart.dart';
 import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/profile.dart';
@@ -47,7 +48,6 @@ class _StartState extends State<Start> {
   int currentTab = 0;
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = const Home();
-
   final List<List<AppbarBtn>> buttons = [
     [
       AppbarBtn(index: 0, icon: Icons.home, name: 'Home', widget: const Home()),
@@ -55,7 +55,7 @@ class _StartState extends State<Start> {
           index: 1,
           icon: Icons.shopping_basket,
           name: 'Cart',
-          widget: const Cart()),
+          widget: BasketScreen()),
     ],
     [
       AppbarBtn(
