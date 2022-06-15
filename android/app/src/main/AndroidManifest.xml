@@ -2,6 +2,7 @@
     package="eatmeat.eat_meat">
    <application
         android:label="eat_meat"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

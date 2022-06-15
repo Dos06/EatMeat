@@ -7,6 +7,7 @@ import 'package:eat_meat/pages/home.dart';
 import 'package:eat_meat/pages/profile.dart';
 import 'package:eat_meat/pages/qr_scan.dart';
 import 'package:eat_meat/pages/search.dart';
+import 'package:eat_meat/pages/webview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
@@ -30,9 +31,10 @@ class MyApp extends StatelessWidget {
       ],
       title: "EatMeat",
       theme: theme(),
-      onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: Home.routeName,
-      home: const Start(),
+      // onGenerateRoute: AppRouter.onGenerateRoute,
+      // initialRoute: Home.routeName,
+      // home: const Start(),
+      home: const WebViewPage(),
     );
   }
 }
